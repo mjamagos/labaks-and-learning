@@ -12,7 +12,7 @@ public class floatingPoint {
         /*Formula for getting the s(x) "sOfx", and computing it with the constant number -1
         1. Get the first bit "s" of the binary string using input.substring(0,1)
         2. If s == 1, then -> (-1)^1 = -1;
-            Else if s ==0, then -> (-1)^0 = 0;
+            Else if s ==0, then -> (-1)^0 = 1;
         3. Store the value inside the variable "signField"
         */
 
@@ -21,6 +21,7 @@ public class floatingPoint {
         String sOfx = input.substring(0,1);
         for(int i = 0; i < sOfx.length(); i++){
             int bit = sOfx.charAt(i == '1') ? -1 : 1; 
+            signField += bit * (int)(Math.pow(2,i));
             System.out.println("s(x) = (-1)^" + sOfx + " = " + signField);
         }
 
@@ -89,4 +90,5 @@ public class floatingPoint {
         
     }
 }
+
 

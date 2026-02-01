@@ -20,11 +20,7 @@ public class floatingPoint {
         int signField = 0;
         String sOfx = input.substring(0,1);
         for(int i = 0; i < sOfx.length(); i++){
-            if (sOfx.charAt(i) == '1'){
-                signField += (int)(Math.pow(-1, 1));
-            } else if (sOfx.charAt(i) == '0'){
-                signField += (int)(Math.pow(-1, 0));
-            }
+            int bit = sOfx.charAt(i == '1') ? -1 : 1; 
             System.out.println("s(x) = (-1)^" + sOfx + " = " + signField);
         }
 
@@ -93,3 +89,4 @@ public class floatingPoint {
         
     }
 }
+

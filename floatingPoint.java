@@ -1,3 +1,4 @@
+
 public class floatingPoint {
     public static void main (String args[]){
         
@@ -20,7 +21,7 @@ public class floatingPoint {
         int signField = 0;
         String sOfx = input.substring(0,1);
         for(int i = 0; i < sOfx.length(); i++){
-            int bit = sOfx.charAt(i == '1') ? -1 : 1; 
+            int bit = sOfx.charAt(i) == '1'  ? -1 : 1; 
             signField += bit * (int)(Math.pow(2,i));
             System.out.println("s(x) = (-1)^" + sOfx + " = " + signField);
         }
@@ -42,13 +43,10 @@ public class floatingPoint {
         int exponent = eOfx.length() - 1;
 
         for(int a = 0; a< eOfx.length() ;a ++){
-            if(eOfx.charAt(a) == '1'){
-                expoField += 1 * Math.pow(2, exponent);
-                System.out.println (eOfx.charAt(a)+ " -> "+ "2^"+ exponent + " = " + (1 * (int)Math.pow(2,exponent)));
-            } else if (eOfx.charAt(a) == '0'){
-                expoField += 0 * Math.pow(2, exponent);
-                System.out.println (eOfx.charAt(a)+ " -> "+ "2^" +exponent + " = " + (0 * (int)Math.pow(2,exponent)));
-            } exponent --;
+            int bit = eOfx.charAt(a) == '1' ? 1:0;
+                expoField += bit * Math.pow(2, exponent);
+                System.out.println (eOfx.charAt(a)+ " -> "+ "2^"+ exponent + " = " + (bit * (int)Math.pow(2,exponent)));
+            exponent --;
         } System.out.println("e(x) = " + eOfx + " = " + expoField);
         
 
@@ -67,13 +65,10 @@ public class floatingPoint {
         int startExpo = -1;
         
         for(int j = 0; j < fOfx.length(); j++){
-            if(fOfx.charAt(j) == '1'){
-                fractionField += 1 * (Math.pow(2, startExpo));
-                System.out.println (fOfx.charAt(j)+ " -> "+ "2^"+ startExpo + " = " + (1 * (double)Math.pow(2,startExpo)));
-            } else if (fOfx.charAt(j) == '0'){
-                fractionField += 0 * (Math.pow(2, startExpo));
-                System.out.println (fOfx.charAt(j)+ " -> "+ "2^"+ startExpo + " = " + (0 * (double)Math.pow(2,startExpo)));
-            }startExpo --;
+            int bit = fOfx.charAt(j) == '1' ? 1:0;
+                fractionField += bit * (Math.pow(2, startExpo));
+                System.out.println (fOfx.charAt(j)+ " -> "+ "2^"+ startExpo + " = " + (bit * (double)Math.pow(2,startExpo)));
+            startExpo --;
         } 
         System.out.println("f(x) = " + fOfx + " = " + fractionField);
 
